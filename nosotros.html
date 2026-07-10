@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animara – Nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .mission-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .mission-grid img { border-radius:var(--radius); box-shadow:var(--shadow); width:100%; height:380px; object-fit:cover; }
+    .mission-text h2 { font-family:'Playfair Display',serif; font-size:1.9rem; margin-bottom:1rem; color:var(--black); }
+    .mission-text p { font-size:.96rem; color:var(--text-mid); line-height:1.8; margin-bottom:1rem; }
+    .mission-text strong { color:var(--orange); }
+    .pillar-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .pillar { background:var(--white); border-radius:var(--radius); padding:2rem 1.5rem; box-shadow:var(--shadow); border-top:4px solid var(--orange); }
+    .pillar h3 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:.6rem; }
+    .pillar p { font-size:.87rem; color:var(--text-mid); line-height:1.6; }
+    .quote-block { background:var(--orange); color:var(--white); border-radius:var(--radius); padding:3rem 2.5rem; text-align:center; max-width:700px; margin:0 auto; }
+    .quote-block blockquote { font-family:'Playfair Display',serif; font-size:1.45rem; font-style:italic; line-height:1.5; margin-bottom:1rem; }
+    .quote-block cite { font-size:.88rem; opacity:.8; }
+    @media(max-width:800px){
+      .mission-grid{grid-template-columns:1fr;}
+      .mission-grid img{height:220px;}
+      .pillar-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo"><img src="img/logo.jpeg" alt="Animara Fundación"/></a>
+  <nav class="navbar__links" id="nav">
+    <a href="donar.html">Donar</a>
+    <a href="como-funciona.html">¿Cómo funciona?</a>
+    <a href="nosotros.html" class="active">Nosotros</a>
+    <a href="aliados.html">Aliados</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="donar.html" class="navbar__cta">Donar ahora</a>
+  </nav>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+</header>
+
+<div class="page-hero">
+  <h1>Quiénes Somos</h1>
+  <p>Somos el puente entre quienes quieren ayudar y los animales que necesitan ese apoyo.</p>
+</div>
+
+<!-- MISIÓN -->
+<section class="section">
+  <div class="container">
+    <div class="mission-grid reveal">
+      <img src="img/084a7463e2d526b83fa88aba39386257.jpg" alt="Apoya una Causa">
+      <div class="mission-text">
+        <h2>Nuestra Misión</h2>
+        <p>
+          <strong>Animara Fundación para Animales</strong> nace con el propósito de ampliar el impacto del rescate animal,
+          apoyando a rescatistas que ya están en campo pero que carecen de recursos para seguir adelante.
+        </p>
+        <p>
+          Actuamos como canalizadores eficientes de recursos: recibimos donativos, los optimizamos comprando
+          por volumen con proveedores aliados y los convertimos en alimentos, medicinas e insumos que llegan
+          directamente a los refugios.
+        </p>
+        <p>
+          Creemos que los verdaderos héroes son quienes dedican su vida al rescate animal.
+          Nuestro trabajo es <strong>hacerles más fácil ese camino</strong>.
+        </p>
+        <a href="donar.html" class="btn btn-primary" style="margin-top:.5rem;">Quiero apoyar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section section--cream">
+  <div class="container">
+    <h2 class="section-title reveal">Lo que nos mueve</h2>
+    <p class="section-sub reveal">Los tres pilares de nuestra fundación</p>
+    <div class="pillar-grid reveal">
+      <div class="pillar">
+        <h3>🐕 Fortalecer refugios</h3>
+        <p>Trabajamos directamente con refugios establecidos para garantizar que reciban los insumos que más necesitan, de forma regular y predecible.</p>
+      </div>
+      <div class="pillar">
+        <h3>🦸 Apoyar rescatistas</h3>
+        <p>Los rescatistas independientes son los héroes invisibles. Les damos acceso a recursos que de otra forma estarían fuera de su alcance.</p>
+      </div>
+      <div class="pillar">
+        <h3>🌟 Mejorar vidas</h3>
+        <p>Cada donativo se transforma en vacunas, visitas veterinarias, alimento continuo y mejoras en las instalaciones de los refugios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Nuestro impacto en números</h2>
+    <p class="section-sub reveal">Cada donativo suma a este resultado</p>
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat__num">+1,500</div>
+        <div class="stat__label">animales apoyados cada mes</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">3</div>
+        <div class="stat__label">refugios aliados activos</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">100%</div>
+        <div class="stat__label">transparencia en el uso de fondos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ FINANCIAMOS -->
+<section class="section section--beige">
+  <div class="container">
+    <h2 class="section-title reveal">¿Qué financia tu apoyo?</h2>
+    <p class="section-sub reveal">Las donaciones se destinan a cosas concretas y verificables</p>
+    <div class="cards-grid cards-grid--4 reveal">
+      <div class="icon-box">
+        <div class="icon-box__circle">💉</div>
+        <h3>Vacunas</h3>
+        <p>Esquemas completos de vacunación para proteger a los animales rescatados.</p>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">🏥</div>
+        <h3>Veterinaria</h3>
+        <p>Visitas y consultas médicas para atender enfermedades y urgencias.</p>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">🏠</div>
+        <h3>Refugios</h3>
+        <p>Remodelaciones y mejoras en las instalaciones para mayor bienestar.</p>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">🍖</div>
+        <h3>Alimentación</h3>
+        <p>Suministro continuo de alimento de calidad para canes y felinos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="section">
+  <div class="container">
+    <div class="quote-block reveal">
+      <blockquote>"Cada animal merece una oportunidad. Cada donativo es esa oportunidad."</blockquote>
+      <cite>— Equipo Animara Fundación</cite>
+    </div>
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section class="section section--cream">
+  <div class="container--narrow reveal">
+    <h2 class="section-title">Condiciones importantes</h2>
+    <p class="section-sub">Para mantener la confianza de nuestra comunidad</p>
+    <div class="notice">⚠️ Las donaciones son <strong>voluntarias y no reembolsables</strong>.</div>
+    <div class="notice">📋 Los recursos se destinan a las necesidades <strong>más prioritarias</strong>, buscando generar el <strong>mayor impacto posible</strong>.</div>
+    <div class="notice">✉️ Al confirmarse tu donación, Animara enviará un correo electrónico como <strong>constancia de la recepción de tu aporte.</strong></div>
+    <div class="btn-center"><a href="contacto.html" class="btn btn-outline">¿Tienes preguntas? Contáctanos</a></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="img/logo.jpeg" alt="Animara"/><p>La red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p></div>
+    <div class="footer__col"><h4>Menú</h4><ul><li><a href="donar.html">Donar</a></li><li><a href="como-funciona.html">¿Cómo funciona?</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div class="footer__col"><h4>Información</h4><ul><li><a href="aliados.html">Nuestros Aliados</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos &amp; Condiciones</a></li></ul></div>
+    <div class="footer__col"><h4>Escríbenos</h4><a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a><div class="footer__social"><a href="#" class="social-btn">fb</a><a href="#" class="social-btn">ig</a></div></div>
+  </div>
+  <div class="footer__bottom">© 2025 Animara Fundación para Animales.</div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

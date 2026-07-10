@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animara – ¿Cómo Funciona?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .step-card {
+      display:grid; grid-template-columns:100px 1fr; gap:2rem; align-items:center;
+      background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:2rem 2rem; margin-bottom:1.5rem;
+    }
+    .step-card__num {
+      width:80px; height:80px; border-radius:50%; background:var(--orange);
+      color:var(--white); display:flex; align-items:center; justify-content:center;
+      font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; flex-shrink:0;
+    }
+    .step-card__content h3 { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:.5rem; color:var(--black); }
+    .step-card__content p { font-size:.92rem; color:var(--text-mid); line-height:1.7; }
+    .step-card__icon { font-size:2rem; margin-bottom:.4rem; }
+    .connector { text-align:center; font-size:2rem; color:var(--orange); margin: -.5rem 0; }
+    .faq-item { border-bottom:1.5px solid var(--beige); padding:1.2rem 0; cursor:pointer; }
+    .faq-item__q { display:flex; justify-content:space-between; align-items:center; font-weight:800; font-size:.97rem; }
+    .faq-item__q span { color:var(--orange); font-size:1.3rem; transition:transform .3s; }
+    .faq-item__a { font-size:.88rem; color:var(--text-mid); line-height:1.7; max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s; }
+    .faq-item.open .faq-item__a { max-height:300px; padding-top:.8rem; }
+    .faq-item.open .faq-item__q span { transform:rotate(45deg); }
+    @media(max-width:600px){ .step-card{grid-template-columns:1fr;} .step-card__num{margin:0 auto;} }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo"><img src="img/logo.jpeg" alt="Animara Fundación"/></a>
+  <nav class="navbar__links" id="nav">
+    <a href="donar.html">Donar</a>  
+    <a href="como-funciona.html" class="active">¿Cómo funciona?</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="aliados.html">Aliados</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="donar.html" class="navbar__cta">Donar ahora</a>
+  </nav>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+</header>
+
+<div class="page-hero">
+  <h1>¿Cómo Funciona?</h1>
+  <p>Un proceso simple, seguro y con seguimiento real para que tu apoyo siempre llegue a quien lo necesita.</p>
+</div>
+
+<!-- PASOS DETALLADOS -->
+<section class="section">
+  <div class="container--narrow">
+    <h2 class="section-title reveal">4 pasos para cambiar vidas</h2>
+    <p class="section-sub reveal">Desde tu donativo hasta el animal que lo recibe</p>
+
+    <div class="reveal">
+      <div class="step-card">
+        <div style="text-align:center;">
+          <div class="step-card__num">1</div>
+        </div>
+        <div class="step-card__content">
+          <div class="step-card__icon">👤</div>
+          <h3>Ingresa tus datos básicos</h3>
+          <p>
+            Completa tu <strong>nombre</strong> y <strong>correo electrónico</strong> para que podamos mantenerte informado sobre el impacto de tu apoyo.
+            No necesitas crear una cuenta ni realizar un registro.
+          </p>
+        </div>
+      </div>
+
+      <div class="connector">↓</div>
+
+      <div class="step-card">
+        <div style="text-align:center;">
+          <div class="step-card__num">2</div>
+        </div>
+        <div class="step-card__content">
+          <div class="step-card__icon">💛</div>
+          <h3>Haz clic en "Donar con PayPal"</h3>
+          <p>
+            Al hacer clic en el botón <strong>Donar con PayPal</strong>, accederás a una plataforma segura donde podrás elegir el <strong>monto de tu donación</strong>, seleccionar si deseas que sea <strong>única, semanal o mensual</strong>, y definir la causa que deseas apoyar.
+          </p>
+        </div>
+      </div>
+
+      <div class="connector">↓</div>
+
+      <div class="step-card">
+        <div style="text-align:center;">
+          <div class="step-card__num">3</div>
+        </div>
+        <div class="step-card__content">
+          <div class="step-card__icon">💳</div>
+          <h3>Completa el proceso de pago</h3>
+          <p>
+            Finaliza tu donación a través de <strong>PayPal</strong>, una plataforma segura y confiable.
+            Tu información financiera está protegida en todo momento y el proceso toma solo unos minutos.
+          </p>      
+        </div>
+      </div>
+
+      <div class="connector">↓</div>
+
+      <div class="step-card">
+        <div style="text-align:center;">
+          <div class="step-card__num">4</div>
+        </div>
+        <div class="step-card__content">
+          <div class="step-card__icon">🐾</div>
+          <h3>Animara se encarga del resto</h3>
+        <p>
+          Recibimos tu donativo y lo optimizamos comprando <strong>por volumen con proveedores aliados</strong>, logrando que cada peso tenga un mayor impacto.
+          Posteriormente distribuimos alimentos, medicinas e insumos directamente a los refugios y rescatistas que más lo necesitan.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO USAMOS EL DINERO -->
+<section class="section section--cream">
+  <div class="container">
+    <h2 class="section-title reveal">¿Cómo usamos el dinero?</h2>
+    <p class="section-sub reveal">Eficiencia y transparencia en cada peso</p>
+    <div class="cards-grid cards-grid--3 reveal">
+      <div class="icon-box">
+        <div class="icon-box__circle">🛒</div>
+        <h3>Compra por volumen</h3>
+        <p>Negociamos precios con proveedores para que cada donativo rinda más que una compra individual.</p>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">🚚</div>
+        <h3>Distribución directa</h3>
+        <p>Los insumos llegan directamente a los refugios, sin intermediarios innecesarios que encarezcan el proceso.</p>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">📊</div>
+        <h3>Reporte de resultados</h3>
+        <p>Publicamos informes periódicos con el detalle de cómo se usaron los fondos recaudados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPOS DE DONACIÓN -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Tres formas de donar</h2>
+    <p class="section-sub reveal">Elige la forma de apoyo que mejor se adapte a ti.</p>
+    <div class="cards-grid cards-grid--3 reveal">
+      <div class="card">
+        <div class="card__img">
+          <img src="img/4b89e6dc-9fbe-47f5-8bfe-fe6ad70dc74e.png" alt="Donación Mensual">
+        </div>
+        <div class="card__body">
+          <span class="card__tag">Mensual</span>
+          <h3>Donación Mensual</h3>
+          <p>La forma de apoyo con mayor impacto. Tu donación mensual permite planificar la ayuda a largo plazo y brindar estabilidad a los refugios y rescatistas aliados.</p>
+          <a href="donar.html"
+          class="btn btn-primary"
+          style="margin:1rem auto 0; font-size:.85rem; display:table;">
+          Donar
+          </a>
+        </div>
+      </div>
+      <div class="card">
+    <div class="card__img">
+        <img src="img/3f101d9b-dbaf-42b5-b82f-33ace0151877.png" alt="Donación Semanal">
+    </div>
+
+    <div class="card__body">
+        <span class="card__tag">Semanal</span>
+
+        <h3>Donación Semanal</h3>
+
+        <p>
+            Con un aporte semanal ayudas a responder rápidamente a las necesidades más urgentes de los animales rescatados, garantizando alimento, medicinas e insumos de forma constante.
+        </p>
+
+        <a href="donar.html"
+        class="btn btn-outline"
+        style="display:table; margin:1rem auto 0; font-size:.85rem;">
+        Donar
+        </a>
+    </div>
+</div>
+      <div class="card">
+        <div class="card__img">
+         <img src="img/4d7b22e0-e42f-4a57-972f-63c9b4590396.png" alt="Apoya una Causa">
+        </div>
+        <div class="card__body">
+          <span class="card__tag">Unica</span>
+          <h3>Apoya una Causa</h3>
+          <p>Realiza una donación única y destínala a la causa que más te inspire: alimentación, atención veterinaria, medicamentos o mejoras para refugios. Un solo aporte puede marcar una gran diferencia.</p>
+          <a href="donar.html#causa"
+          class="btn btn-primary"
+          style="margin:1rem auto 0; font-size:.85rem; display:table;">
+          Donar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--beige">
+  <div class="container--narrow">
+    <h2 class="section-title reveal">Preguntas Frecuentes</h2>
+    <p class="section-sub reveal">Todo lo que necesitas saber antes de donar</p>
+    <div class="reveal">
+      <div class="faq-item">
+        <div class="faq-item__q">¿Necesito registrarme para donar? <span>+</span></div>
+        <div class="faq-item__a">No. Puedes donar sin necesidad de crear una cuenta ni registrarte en ninguna plataforma. El proceso es rápido y sencillo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">¿Mi donativo es seguro? <span>+</span></div>
+        <div class="faq-item__a">Sí. Utilizamos PayPal como plataforma de pago, que cuenta con encriptación de datos y protección al comprador. Tu información financiera está segura.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">¿Puedo cancelar mi donación semanal o mensual? <span>+</span></div>
+        <div class="faq-item__a">Sí. Puedes cancelar tu suscripción semanal o mensual en cualquier momento directamente desde tu cuenta de PayPal, sin penalizaciones.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">¿Las donaciones son deducibles de impuestos? <span>+</span></div>
+        <div class="faq-item__a">Estamos trabajando en obtener la donataria autorizada para que tus donativos sean deducibles de impuestos. Por el momento no aplica. Te notificaremos cuando esté disponible.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">¿Cómo sé que mi dinero realmente llega a los animales? <span>+</span></div>
+        <div class="faq-item__a">Cada donativo se destina a apoyar refugios y rescatistas previamente seleccionados por Animara. A medida que el proyecto crezca, publicaremos reportes e historias de impacto para que nuestros donantes puedan conocer cómo su apoyo está ayudando a mejorar la vida de los animales.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-item__q">¿Puedo elegir a qué refugio va mi donativo? <span>+</span></div>
+        <div class="faq-item__a">Puedes indicar una preferencia, pero la fundación toma la decisión final de distribución según las necesidades más urgentes. Esto nos permite maximizar el impacto total.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section--orange" style="text-align:center;">
+  <div class="container reveal">
+    <h2 class="section-title section-title--white">¿Listo para hacer la diferencia?</h2>
+    <p class="section-sub section-sub--white">Tu donativo, por pequeño que sea, cambia vidas reales.</p>
+    <a href="donar.html" class="btn btn-white">Donar ahora</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="img/logo.jpeg" alt="Animara"/><p>La red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p></div>
+    <div class="footer__col"><h4>Menú</h4><ul><li><a href="donar.html">Donar</a></li><li><a href="como-funciona.html">¿Cómo funciona?</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div class="footer__col"><h4>Información</h4><ul><li><a href="aliados.html">Nuestros Aliados</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos &amp; Condiciones</a></li></ul></div>
+    <div class="footer__col"><h4>Escríbenos</h4><a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a></div>
+  </div>
+  <div class="footer__bottom">© 2025 Animara Fundación para Animales.</div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-item__q').addEventListener('click', () => {
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

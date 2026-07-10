@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animara – Contacto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .contact-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:4rem; align-items:start; }
+    .contact-info h2 { font-family:'Playfair Display',serif; font-size:1.7rem; margin-bottom:1rem; }
+    .contact-info p { font-size:.93rem; color:var(--text-mid); line-height:1.75; margin-bottom:1.5rem; }
+    .contact-item { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.2rem; }
+    .contact-item__icon { width:44px; height:44px; border-radius:50%; background:var(--cream); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .contact-item__text h4 { font-weight:800; font-size:.9rem; margin-bottom:.15rem; }
+    .contact-item__text p, .contact-item__text a { font-size:.88rem; color:var(--text-mid); transition:color .2s; }
+    .contact-item__text a:hover { color:var(--orange); }
+    .contact-form-box { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:2.5rem; }
+    .contact-form-box h3 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1.5rem; }
+    #form-success { display:none; background:#e6f4ea; border:1.5px solid #4CAF50; color:#2e7d32; border-radius:8px; padding:1rem 1.5rem; text-align:center; margin-top:1rem; font-weight:700; }
+    .social-row { display:flex; gap:1rem; margin-top:1.5rem; }
+    .social-link { display:flex; align-items:center; gap:.5rem; padding:.6rem 1.2rem; border-radius:50px; background:var(--cream); font-weight:700; font-size:.85rem; transition:all .2s; color:var(--black); }
+    .social-link:hover { background:var(--orange); color:var(--white); }
+    @media(max-width:780px){ .contact-grid{grid-template-columns:1fr;gap:2rem;} }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo"><img src="img/logo.jpeg" alt="Animara Fundación"/></a>
+  <nav class="navbar__links" id="nav">
+    <a href="donar.html">Donar</a>
+    <a href="como-funciona.html">¿Cómo funciona?</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="aliados.html">Aliados</a>
+    <a href="contacto.html" class="active">Contacto</a>
+    <a href="donar.html" class="navbar__cta">Donar ahora</a>
+  </nav>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+</header>
+
+<div class="page-hero">
+  <h1>Contacto</h1>
+  <p>¿Tienes preguntas, quieres ser aliado o simplemente quieres decirnos hola? Estamos aquí.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid reveal">
+      <!-- INFO -->
+      <div class="contact-info">
+        <h2>Hablemos</h2>
+        <p>
+          En Animara creemos en la comunidad. Si tienes dudas sobre cómo funciona tu donativo,
+          quieres postular un refugio como aliado, o simplemente quieres conectar con nosotros,
+          escríbenos. Respondemos en menos de 24 horas.
+        </p>
+
+        <div class="contact-item">
+          <div class="contact-item__icon">📧</div>
+          <div class="contact-item__text">
+            <h4>Correo electrónico</h4>
+            <a href="mailto:hola@animara.org">hola@animara.org</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon">📍</div>
+          <div class="contact-item__text">
+            <h4>Ubicación</h4>
+            <p>México 🇲🇽 — Operamos a nivel nacional</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon">⏰</div>
+          <div class="contact-item__text">
+            <h4>Horario de atención</h4>
+            <p>Lunes a viernes, 9:00 – 18:00 hrs (CST)</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item__icon">🐾</div>
+          <div class="contact-item__text">
+            <h4>¿Eres refugio o rescatista?</h4>
+            <p>Escríbenos con el asunto <strong>"Quiero ser aliado"</strong> y cuéntanos sobre tu trabajo.</p>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="#" class="social-link">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="contact-form-box">
+        <h3>Envíanos un mensaje</h3>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" placeholder="Tu nombre" required/>
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input type="text" placeholder="Tu apellido"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico *</label>
+            <input type="email" placeholder="tu@correo.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <select>
+              <option value="">— Selecciona un asunto —</option>
+              <option>Pregunta sobre mi donativo</option>
+              <option>Quiero ser aliado (refugio/rescatista)</option>
+              <option>Propuesta de colaboración</option>
+              <option>Reportar un problema</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje *</label>
+            <textarea placeholder="Cuéntanos en qué podemos ayudarte..." required></textarea>
+          </div>
+          <div class="notice">
+            📋 Al enviar este formulario aceptas nuestro <a href="#" style="color:var(--orange);">Aviso de privacidad</a>.
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:.5rem;">Enviar mensaje →</button>
+        </form>
+        <div id="form-success">✅ ¡Mensaje enviado! Te responderemos en menos de 24 horas.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAMBIÉN PUEDES -->
+<section class="section section--cream">
+  <div class="container">
+    <h2 class="section-title reveal">También puedes...</h2>
+    <div class="cards-grid cards-grid--3 reveal">
+      <div class="icon-box">
+        <div class="icon-box__circle">💛</div>
+        <h3>Donar ahora</h3>
+        <p>Sin registro. Tu donativo llega directo a los refugios en forma de alimento y medicinas.</p>
+        <a href="donar.html" class="btn btn-primary" style="margin-top:1rem;font-size:.83rem;">Donar</a>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">🏠</div>
+        <h3>Conocer los refugios</h3>
+        <p>Visita la página de nuestros aliados y conoce a los refugios que apoyas con tu donativo.</p>
+        <a href="aliados.html" class="btn btn-outline" style="margin-top:1rem;font-size:.83rem;">Ver aliados</a>
+      </div>
+      <div class="icon-box">
+        <div class="icon-box__circle">❓</div>
+        <h3>Resolver tus dudas</h3>
+        <p>Visita nuestra sección de ¿Cómo funciona? con preguntas frecuentes respondidas.</p>
+        <a href="como-funciona.html" class="btn btn-outline" style="margin-top:1rem;font-size:.83rem;">Ver preguntas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="img/logo.jpeg" alt="Animara"/><p>La red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p></div>
+    <div class="footer__col"><h4>Menú</h4><ul><li><a href="donar.html">Donar</a></li><li><a href="como-funciona.html">¿Cómo funciona?</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div class="footer__col"><h4>Información</h4><ul><li><a href="aliados.html">Nuestros Aliados</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos &amp; Condiciones</a></li></ul></div>
+    <div class="footer__col"><h4>Escríbenos</h4><a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a></div>
+  </div>
+  <div class="footer__bottom">© 2025 Animara Fundación para Animales.</div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

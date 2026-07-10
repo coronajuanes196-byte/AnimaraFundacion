@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1027511899802589');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1027511899802589&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Animara Fundación – Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      display: grid;
+      grid-template-columns: 57% 43%;
+      min-height: 520px;
+      max-height: 620px;
+      overflow: hidden;
+    }
+
+    .hero__img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 8s ease;
+    }
+
+    .hero:hover .hero__img img {
+      transform: scale(1.04);
+    }
+
+    .hero__text {
+      background: var(--orange-light);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 3rem 2.5rem;
+    }
+
+    .hero__text h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.7rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--white);
+    }
+
+    .hero__text h1 span {
+      display: inline-block;
+      background: var(--orange-warm);
+      color: var(--black);
+      padding: .05em .25em;
+      font-size: clamp(1.7rem, 3.8vw, 3rem);
+    }
+
+    /* ---- ABOUT STRIP ---- */
+    .about-strip {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    .about-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: .6rem;
+    }
+
+    .about-strip .sub {
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+    }
+
+    .about-strip .desc {
+      max-width: 660px;
+      margin: 0 auto 2rem;
+      font-size: .95rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+
+    /* ---- VALUES ---- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ---- DONATION TYPES ---- */
+    .don-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .don-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .25s;
+    }
+
+    .don-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .don-card__img {
+      height: 230px;
+      overflow: hidden;
+    }
+
+    .don-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .don-card:hover .don-card__img img {
+      transform: scale(1.06);
+    }
+
+    .don-card__body {
+      padding: 1.1rem 1.3rem;
+      background: var(--white);
+    }
+
+    .don-card__body a {
+      font-weight: 700;
+      color: var(--text);
+      font-size: .93rem;
+      transition: color .2s;
+    }
+
+    .don-card:hover .don-card__body a {
+      color: var(--orange);
+    }
+
+    /* ---- ALLIES MINI ---- */
+    .allies-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ally {
+      text-align: left;
+    }
+
+    .ally__img {
+      height: 155px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: .8rem;
+    }
+
+    .ally__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .ally:hover .ally__img img {
+      transform: scale(1.06);
+    }
+
+    .ally h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem;
+      margin-bottom: .3rem;
+    }
+
+    .ally p {
+      font-size: .82rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    @media(max-width:800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 260px auto;
+        max-height: none;
+        min-height: auto;
+      }
+
+      .hero__text {
+        /* on small screens keep text centered vertically */
+        align-items: center;
+        padding: 1.2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .don-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .allies-mini {
+        grid-template-columns: 1fr;
+      }
+
+    
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="navbar__logo">
+      <img src="img/logo.jpeg" alt="Animara Fundación logo" />
+    </a>
+    <nav class="navbar__links" id="nav">
+      <a href="donar.html">Donar</a>
+      <a href="como-funciona.html">¿Cómo funciona?</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="aliados.html">Aliados</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="donar.html" class="navbar__cta">Donar ahora</a>
+    </nav>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__img">
+      <img src="https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=900&q=80" alt="Perrito rescatado" />
+    </div>
+    <div class="hero__text">
+      <h1>
+        LLENEMOS<br />SUS PANCITAS<br />DE AMOR<br />CON AYUDA<br />DE TUS<br />
+        <span>DONACIONES</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip reveal">
+    <h2>Animara Fundación para Animales</h2>
+    <p class="sub">Somos la red de apoyo más efectiva y confiable para refugios y rescatistas.</p>
+    <p class="desc">
+      Nuestra misión es actuar como canalizadores de recursos y apoyo para aquellos que cuidan animales de la calle.
+      Facilitamos la entrega de suministros críticos — alimentos, medicinas e insumos — <strong>mejorando la calidad de
+        vida de los animales rescatados.</strong>
+    </p>
+    <a href="nosotros.html" class="btn btn-outline">Conoce más</a>
+  </section>
+
+  <!-- VALORES -->
+  <section class="section section--cream">
+    <div class="container">
+      <h2 class="section-title reveal">¿Por qué Animara?</h2>
+      <p class="section-sub reveal">Cuatro pilares que nos hacen diferentes</p>
+      <div class="values-grid reveal">
+        <div class="icon-box">
+          <div class="icon-box__circle">🎯</div>
+          <h3>Impacto directo</h3>
+          <p>Tu dinero se convierte en alimento, vacunas y cuidado real para animales que lo necesitan.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon-box__circle">🔍</div>
+          <h3>Transparencia</h3>
+          <p>Confirmamos la recepción de cada donación por correo electrónico y administramos los recursos con responsabilidad para maximizar su impacto.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon-box__circle">⚡</div>
+          <h3>Eficiencia</h3>
+          <p>Compramos por volumen con proveedores aliados, logrando que cada peso rinda más.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon-box__circle">❤️</div>
+          <h3>Facilidad</h3>
+          <p>Dona en pocos pasos. Ingresa tus datos básicos y completa tu aporte de forma segura a través de PayPal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPO DE DONACIONES -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Tres formas de donar</h2>
+    <p class="section-sub reveal">Elige la forma en que quieres ayudar</p>
+
+    <div class="don-cards reveal">
+
+      <div class="don-card">
+        <div class="don-card__img">
+          <img src="img/4b89e6dc-9fbe-47f5-8bfe-fe6ad70dc74e.png" alt="Donación mensual" />
+        </div>
+        <div class="don-card__body">
+          <a href="donar.html">Donación Mensual →</a>
+        </div>
+      </div>
+
+      <div class="don-card">
+        <div class="don-card__img">
+          <img src="img/3f101d9b-dbaf-42b5-b82f-33ace0151877.png" alt="Donación semanal" />
+        </div>
+        <div class="don-card__body">
+          <a href="donar.html">Donación Semanal →</a>
+        </div>
+      </div>
+
+      <div class="don-card">
+        <div class="don-card__img">
+          <img src="img/4d7b22e0-e42f-4a57-972f-63c9b4590396.png" alt="Apoya una causa" />
+        </div>
+        <div class="don-card__body">
+          <a href="donar.html">Apoya una Causa →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ALIADOS -->
+  <section class="section section--beige">
+    <div class="container">
+      <h2 class="section-title reveal">Nuestros Aliados</h2>
+      <p class="section-sub reveal">Refugios y rescatistas que apoyamos directamente</p>
+      <div class="allies-mini reveal">
+        <div class="ally">
+          <div class="ally__img"><img src="img/fransiscano.png"
+              alt="Refugio 1" /></div>
+          <h3>Refugio Franciscano AC</h3>
+          <p>Cuidan a más de 1,500 perritos y 40 gatitos con más de 50 años de trabajo.</p>
+        </div>
+        <div class="ally">
+          <div class="ally__img"><img src="img/patit.jpg"
+              alt="Refugio 2" /></div>
+          <h3>Refugio Patitas</h3>
+          <p>Contamos con más de 25 canes en activo.</p>
+        </div>
+        <div class="ally">
+          <div class="ally__img"><img src="img/hermo.png"
+              alt="Refugio 3" /></div>
+          <h3>Refugio Hermosillo</h3>
+          <p>10 canes y 12 gatitos reciben ayuda cada mes.</p>
+        </div>
+      </div>
+      <div class="btn-center reveal"><a href="aliados.html" class="btn btn-outline">Ver todos los aliados</a></div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA CTA -->
+  <section class="section section--orange">
+    <div class="container" style="text-align:center;">
+      <h2 class="section-title section-title--white reveal">¿Cómo funciona tu donativo?</h2>
+      <p class="section-sub section-sub--white reveal">Un proceso sencillo, seguro y transparente para transformar tu donación en ayuda real.</p>
+      <div class="steps reveal">
+        <div class="step-item">
+          <div class="step-item__circle"><span class="step-num">1</span>👤</div>
+          <h3>Ingresa tus datos básicos</h3>
+          <p>Completa tu nombre y correo electrónico para iniciar tu donación.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-item">
+          <div class="step-item__circle"><span class="step-num">2</span>💛</div>
+          <h3>Haz clic en "Donar con PayPal"</h3>
+          <p>En PayPal podrás elegir el monto, la causa y si tu donación será única, semanal o mensual.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-item">
+          <div class="step-item__circle"><span class="step-num">3</span>💳</div>
+          <h3>Completa el proceso de pago</h3>
+          <p>Finaliza tu donación de forma segura a través de PayPal en solo unos minutos.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-item">
+          <div class="step-item__circle"><span class="step-num">4</span>🐾</div>
+          <h3>Animara se encarga del resto</h3>
+          <p>Convertimos tu donación en alimento, medicinas e insumos que llegan directamente a refugios y rescatistas.</p>
+        </div>
+      </div>
+      <div class="btn-center reveal"><a href="como-funciona.html" class="btn btn-white">Ver detalle completo</a></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="img/logo.jpeg" alt="Animara" />
+        <p>Somos la red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Menú</h4>
+        <ul>
+          <li><a href="donar.html">Donar</a></li>
+          <li><a href="como-funciona.html">¿Cómo funciona?</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="aliados.html">Nuestros Aliados</a></li>
+          <li><a href="#">Aviso de privacidad</a></li>
+          <li><a href="#">Términos &amp; Condiciones</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Escríbenos</h4>
+        <a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a>
+        <div class="footer__social">
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">© 2025 Animara Fundación para Animales. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animara – Nuestros Aliados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .ally-card {
+      background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow);
+      overflow:hidden; transition:transform .25s, box-shadow .25s;
+    }
+    .ally-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(200,101,10,.15); }
+    .ally-card__img { height:200px; overflow:hidden; }
+    .ally-card__img img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+    .ally-card:hover .ally-card__img img { transform:scale(1.06); }
+    .ally-card__body { padding:1.4rem 1.5rem; }
+    .ally-card__body h3 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:.3rem; }
+    .ally-card__meta { font-size:.78rem; color:var(--orange); font-weight:800; margin-bottom:.5rem; }
+    .ally-card__body p { font-size:.87rem; color:var(--text-mid); line-height:1.6; }
+    .ally-stat { display:flex; gap:.5rem; align-items:center; margin-top:.7rem; font-size:.82rem; color:var(--text-mid); }
+    .ally-stat span { font-weight:800; color:var(--orange); }
+    .join-box { background:var(--cream); border:2px dashed var(--orange); border-radius:var(--radius); padding:3rem 2rem; text-align:center; }
+    .join-box h3 { font-family:'Playfair Display',serif; font-size:1.5rem; margin-bottom:.7rem; }
+    .join-box p { color:var(--text-mid); margin-bottom:1.5rem; font-size:.93rem; max-width:500px; margin-left:auto; margin-right:auto; }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo"><img src="img/logo.jpeg" alt="Animara Fundación"/></a>
+  <nav class="navbar__links" id="nav">
+    <a href="donar.html">Donar</a>
+    <a href="como-funciona.html">¿Cómo funciona?</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="aliados.html" class="active">Aliados</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="donar.html" class="navbar__cta">Donar ahora</a>
+  </nav>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+</header>
+
+<div class="page-hero">
+  <h1>Nuestros Aliados</h1>
+  <p>Los refugios y rescatistas que reciben directamente tu apoyo cada mes.</p>
+</div>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container--narrow" style="text-align:center;">
+    <h2 class="section-title reveal">Los verdaderos héroes</h2>
+    <p class="section-sub reveal" style="max-width:600px;margin:0 auto 0;">
+      Nuestros aliados son refugios y rescatistas que ya están en campo, cuidando animales de la calle.
+      Animara llega para <strong>facilitarles el camino</strong>, no para sustituirlos.
+    </p>
+  </div>
+</section>
+
+<!-- ALIADOS GRID -->
+<section class="section section--cream" style="padding-top:1rem;">
+  <div class="container">
+    <div class="cards-grid cards-grid--3 reveal">
+      <div class="ally-card">
+        <div class="ally-card__img">
+          <img src="img/fransiscano.png" alt="Refugio Franciscano"/>
+        </div>
+        <div class="ally-card__body">
+          <p class="ally-card__meta">📍 Ciudad de México</p>
+          <h3>Refugio Franciscano AC</h3>
+          <p>Con más de 40 años de trabajo ininterrumpido, este refugio es uno de los más importantes del país. Se especializan en rescate y rehabilitación de perros callejeros.</p>
+          <div class="ally-stat">🐕 <span>1,500+</span> perritos en cuidado activo</div>
+          <div class="ally-stat">🐈 <span>40+</span> gatitos en cuidado activo</div>
+          <div class="ally-stat">📅 <span>40+</span> años de trayectoria</div>
+        </div>
+      </div>
+
+      <div class="ally-card">
+        <div class="ally-card__img">
+          <img src="img/patit.jpg" alt="Refugio Patitas"/>
+        </div>
+        <div class="ally-card__body">
+          <p class="ally-card__meta">📍 Guadalajara, Jalisco</p>
+          <h3>Refugio Patitas</h3>
+          <p>Un equipo joven y comprometido que rescata perros de las calles de Guadalajara. Su enfoque es la adopción responsable y la esterilización masiva.</p>
+          <div class="ally-stat">🐕 <span>25+</span> canes en activo</div>
+          <div class="ally-stat">🏠 <span>80%</span> tasa de adopción exitosa</div>
+        </div>
+      </div>
+
+      <div class="ally-card">
+        <div class="ally-card__img">
+          <img src="img/hermo.png" alt="Refugio Hermosillo"/>
+        </div>
+        <div class="ally-card__body">
+          <p class="ally-card__meta">📍 Hermosillo, Sonora</p>
+          <h3>Refugio Hermosillo</h3>
+          <p>Pequeño pero poderoso. Este refugio familiar atiende tanto perros como gatos rescatados del norte del país, en condiciones de calor extremo.</p>
+          <div class="ally-stat">🐕 <span>10</span> canes | 🐈 <span>12</span> gatitos</div>
+          <div class="ally-stat">🌡️ Operan en zonas de <span>calor extremo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO COLECTIVO -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">Impacto colectivo</h2>
+    <p class="section-sub reveal">Lo que hemos logrado juntos hasta hoy</p>
+    <div class="stats-grid reveal">
+      <div class="stat">
+        <div class="stat__num">1,535+</div>
+        <div class="stat__label">animales en cuidado activo entre todos los aliados</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">3</div>
+        <div class="stat__label">refugios aliados en distintos estados</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">100%</div>
+        <div class="stat__label">de los recursos van directo al refugio, sin retención</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÚNETE -->
+<section class="section section--beige">
+  <div class="container--narrow reveal">
+    <div class="join-box">
+      <h3>¿Tienes un refugio o eres rescatista?</h3>
+      <p>
+        Si cuidas animales de la calle y necesitas apoyo de recursos, te invitamos a postularte como aliado de Animara.
+        Evaluamos cada caso y trabajamos para que tu labor tenga el respaldo que merece.
+      </p>
+      <a href="contacto.html" class="btn btn-primary">Quiero ser aliado</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA DONAR -->
+<section class="section section--orange" style="text-align:center;">
+  <div class="container reveal">
+    <h2 class="section-title section-title--white">Apoya a nuestros aliados</h2>
+    <p class="section-sub section-sub--white">Tu donativo va directo a estos refugios, en forma de alimento, medicinas y cuidados.</p>
+    <a href="donar.html" class="btn btn-white">Donar ahora</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="img/logo.jpeg" alt="Animara"/><p>La red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p></div>
+    <div class="footer__col"><h4>Menú</h4><ul><li><a href="donar.html">Donar</a></li><li><a href="como-funciona.html">¿Cómo funciona?</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div class="footer__col"><h4>Información</h4><ul><li><a href="aliados.html">Nuestros Aliados</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos &amp; Condiciones</a></li></ul></div>
+    <div class="footer__col"><h4>Escríbenos</h4><a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a></div>
+  </div>
+  <div class="footer__bottom">© 2025 Animara Fundación para Animales.</div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

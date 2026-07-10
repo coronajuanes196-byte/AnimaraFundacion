@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Animara – Donar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .amounts-wrap { display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; margin-bottom:1.5rem; }
+    .amount-btn {
+      border:2px solid var(--beige); background:var(--white); color:var(--text);
+      font-family:var(--font-body); font-weight:800; font-size:1rem;
+      padding:.65rem 1.5rem; border-radius:50px; cursor:pointer; transition:all .2s;
+    }
+    .amount-btn:hover, .amount-btn.selected { border-color:var(--orange); background:var(--orange); color:var(--white); }
+    .custom-row { display:flex; gap:.8rem; align-items:center; justify-content:center; margin-bottom:2rem; }
+    .custom-row input { padding:.65rem 1rem; border:2px solid var(--beige); border-radius:50px; font-size:1rem; width:160px; text-align:center; font-family:var(--font-body); transition:border-color .2s; }
+    .custom-row input:focus { outline:none; border-color:var(--orange); }
+    .don-tabs { display:flex; gap:1rem; justify-content:center; margin-bottom:2.5rem; }
+    .don-tab {
+      padding:.6rem 2rem; border-radius:50px; border:2px solid var(--orange);
+      font-weight:800; cursor:pointer; font-family:var(--font-body); font-size:.93rem;
+      background:var(--white); color:var(--orange); transition:all .2s;
+    }
+    .don-tab.active, .don-tab:hover { background:var(--orange); color:var(--white); }
+    .don-form-box { background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow); padding:2.5rem; max-width:560px; margin:0 auto; }
+    .don-form-box h3 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1.5rem; text-align:center; }
+    .paypal-btn { display:flex; align-items:center; justify-content:center; gap:.6rem; background:#FFC439; color:#111; font-weight:800; font-size:1rem; padding:.8rem 2rem; border-radius:50px; border:none; cursor:pointer; width:100%; margin-top:1rem; font-family:var(--font-body); transition:opacity .2s; }
+    .paypal-btn:hover { opacity:.88; }
+    .what-gets { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+    .what-item { display:flex; align-items:flex-start; gap:.8rem; background:var(--white); border-radius:8px; padding:1.1rem; box-shadow:var(--shadow); }
+    .what-item__icon { font-size:1.5rem; flex-shrink:0; }
+    .what-item h4 { font-size:.9rem; font-weight:800; margin-bottom:.2rem; }
+    .what-item p { font-size:.8rem; color:var(--text-mid); line-height:1.5; }
+    #success-msg { display:none; background:#e6f4ea; border:1.5px solid #4CAF50; color:#2e7d32; border-radius:8px; padding:1rem 1.5rem; text-align:center; margin-top:1rem; font-weight:700; }
+    @media(max-width:600px){ .what-gets{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo"><img src="img/logo.jpeg" alt="Animara Fundación"/></a>
+  <nav class="navbar__links" id="nav">
+    <a href="donar.html" class="active">Donar</a>
+    <a href="como-funciona.html">¿Cómo funciona?</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="aliados.html">Aliados</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="donar.html" class="navbar__cta">Donar ahora</a>
+  </nav>
+  <button class="hamburger" id="hamburger">&#9776;</button>
+</header>
+
+<div class="page-hero">
+  <h1>Haz tu Donativo</h1>
+  <p>Sin registro, sin complicaciones. Tu apoyo llega directo a quienes más lo necesitan.</p>
+</div>
+
+<!-- DONATION FORM -->
+<section class="section" id="mensual">
+  <div class="container--narrow">
+    
+
+    <div class="don-form-box reveal">
+      <h3>Donación</h3>
+      <p style="text-align:center;color:var(--text-mid);font-size:.95rem;line-height:1.7;margin-bottom:2rem;">
+      Cada aporte cuenta. Tu donación nos ayuda a llevar alimento, medicinas e insumos a refugios y rescatistas que brindan una segunda oportunidad a animales en situación de calle. 🐾
+      </p>
+      <form id="donation-form" class="donation-form">
+        <div class="form-group">
+          <label for="don-name">Tu nombre</label>
+          <input id="don-name" name="nombre" type="text" placeholder="Maria Garcia" required/>
+        </div>
+        <div class="form-group">
+          <label for="don-email">Correo electrónico</label>
+          <input id="don-email" name="email" type="email" placeholder="maria@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label for="don-causa">¿A qué causa quieres destinar tu donativo?</label>
+          <select id="don-causa" name="causa">
+            <option value="">— Donde más se necesite —</option>
+            <option>Alimentación continua</option>
+            <option>Atención veterinaria</option>
+            <option>Vacunas</option>
+            <option>Mejoras en refugios</option>
+          </select>
+        </div>
+        <input type="hidden" id="don-monto" name="monto" value=""/>
+        <input type="hidden" name="hosted_button_id" value="HQNJVRXJG2Y58" id="paypal-hosted-button"/>
+        <button type="submit" class="paypal-btn" id="paypal-submit-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#003087" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 4.643-5.813 4.643H12.54c-.524 0-.968.382-1.05.9l-1.12 7.107h2.606l1.12-7.107c.082-.518.526-.9 1.05-.9h.663c3.247 0 5.223-1.618 5.813-4.643.258-1.327.106-2.437-.4-3.113z"/>
+          </svg>
+          Donar con PayPal
+        </button>
+      </form>
+      <div id="success-msg">✅ ¡Gracias por tu apoyo! Te hemos enviado una confirmación a tu correo.</div>
+
+      <p style="text-align:center;font-size:.75rem;color:var(--text-mid);margin-top:1rem;">
+        Las donaciones son voluntarias y no reembolsables. Proceso de pago seguro vía PayPal.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES SUGERIDOS -->
+<section class="section section--cream" id="causa">
+  <div class="container">
+    <h2 class="section-title reveal">Planes Sugeridos</h2>
+    <p class="section-sub reveal">Elige el nivel de impacto que quieres generar</p>
+    <div class="cards-grid cards-grid--3 reveal">
+      <div class="donation-plan">
+        <h3>🐾 Amigo</h3>
+        <div class="donation-plan__price">$10 <span style="font-size:1rem;font-weight:400;">/mes</span></div>
+        <ul>
+          <li>Alimentación por 3 días para un animal</li>
+        </ul>
+        <a href="#mensual" class="btn btn-outline">Elegir plan</a>
+      </div>
+      <div class="donation-plan featured">
+        <div class="donation-plan__badge">Más popular</div>
+        <h3>🌟 Guardián</h3>
+        <div class="donation-plan__price">$30 <span style="font-size:1rem;font-weight:400;">/mes</span></div>
+        <ul>
+          <li>Alimentación por 10 días para un animal</li>
+          <li>Contribuye a una consulta veterinaria</li>
+        </ul>
+        <a href="#mensual" class="btn btn-white">Elegir plan</a>
+      </div>
+      <div class="donation-plan">
+        <h3>🏆 Héroe</h3>
+        <div class="donation-plan__price">$100 <span style="font-size:1rem;font-weight:400;">/mes</span></div>
+        <ul>
+          <li>Alimentación mensual completa para un animal</li>
+          <li>Cubre vacunas completas</li>
+        </ul>
+        <a href="#mensual" class="btn btn-outline">Elegir plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿QUÉ COMPRAS CON TU DONATIVO? -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title reveal">¿En qué se convierte tu donativo?</h2>
+    <p class="section-sub reveal">Cada peso se usa con eficiencia y transparencia</p>
+    <div class="what-gets reveal">
+      <div class="what-item">
+        <span class="what-item__icon">🍖</span>
+        <div><h4>Alimento de calidad</h4><p>Compramos por volumen para que cada kilo rinda más y llegue a más animales.</p></div>
+      </div>
+      <div class="what-item">
+        <span class="what-item__icon">💉</span>
+        <div><h4>Vacunas y medicinas</h4><p>Protegemos la salud de los animales rescatados con esquemas completos.</p></div>
+      </div>
+      <div class="what-item">
+        <span class="what-item__icon">🏥</span>
+        <div><h4>Atención veterinaria</h4><p>Visitas y consultas para tratar enfermedades y emergencias.</p></div>
+      </div>
+      <div class="what-item">
+        <span class="what-item__icon">🏠</span>
+        <div><h4>Mejoras en refugios</h4><p>Remodelaciones para que los animales tengan un espacio digno y seguro.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand"><img src="img/logo.jpeg" alt="Animara"/><p>La red de apoyo más efectiva y confiable para refugios y rescatistas de animales.</p></div>
+    <div class="footer__col"><h4>Menú</h4><ul><li><a href="donar.html">Donar</a></li><li><a href="como-funciona.html">¿Cómo funciona?</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+    <div class="footer__col"><h4>Información</h4><ul><li><a href="aliados.html">Nuestros Aliados</a></li><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos &amp; Condiciones</a></li></ul></div>
+    <div class="footer__col"><h4>Escríbenos</h4><a href="mailto:hola@animara.org" class="footer__email">hola@animara.org</a></div>
+  </div>
+  <div class="footer__bottom">© 2025 Animara Fundación para Animales.</div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function switchTab(type, el) {
+  document.querySelectorAll('.don-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const title = document.getElementById('form-title');
+  const desc = document.getElementById('form-desc');
+  if (type === 'mensual') {
+    title.textContent = 'Donación Mensual Recurrente';
+    desc.textContent = 'Comprométete a ayudar cada mes. Tu donativo recurrente garantiza un flujo constante de recursos para los refugios.';
+  } else {
+    title.textContent = 'Donación Única';
+    desc.textContent = 'Haz una donación puntual a la causa que más te mueva. Sin compromiso de continuidad.';
+  }
+}
+</script>
+</body>
+</html>
