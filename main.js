@@ -58,9 +58,6 @@ if (donationForm) {
     const monto = document.getElementById('don-monto').value;
 
     try {
-      const submitBtn = document.getElementById('paypal-submit-btn');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '0.6'; }
-
       const response = await fetch('/api/donacion', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -70,27 +67,16 @@ if (donationForm) {
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || 'No se pudo enviar la notificación');
 
-      if (successMsg) {
-        document.getElementById('success-text').textContent = '✅ ¡Gracias por tu apoyo! Te hemos enviado una confirmación a tu correo.';
-        successMsg.style.display = 'block';
-      }
+      if (successMsg) successMsg.style.display = 'block';
       donationForm.reset();
+      window.location.href = 'https://www.paypal.com/donate?hosted_button_id=HQNJVRXJG2Y58';
     } catch (error) {
       console.error(error);
       if (successMsg) {
-        document.getElementById('success-text').textContent = '⚠️ No se pudo enviar la notificación, pero puedes continuar con PayPal.';
+        successMsg.textContent = '⚠️ No se pudo enviar la notificación, pero puedes continuar con PayPal.';
         successMsg.style.display = 'block';
       }
-    } finally {
-      const continueBtn = document.getElementById('continue-paypal');
-      if (continueBtn) {
-        continueBtn.addEventListener('click', () => {
-          const hostId = document.getElementById('paypal-hosted-button')?.value || 'HQNJVRXJG2Y58';
-          window.location.href = `https://www.paypal.com/donate?hosted_button_id=${hostId}`;
-        });
-      }
-      const submitBtn = document.getElementById('paypal-submit-btn');
-      if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = '1'; }
+      window.location.href = 'https://www.paypal.com/donate?hosted_button_id=HQNJVRXJG2Y58';
     }
   });
 }
