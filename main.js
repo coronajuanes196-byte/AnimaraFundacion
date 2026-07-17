@@ -37,10 +37,39 @@ document.querySelectorAll('.amount-btn').forEach(btn => {
 // ===== CONTACT FORM =====
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const nombre = document.getElementById('contact-name').value.trim();
+    const apellido = document.getElementById('contact-lastname').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const asunto = document.getElementById('contact-asunto').value.trim();
+    const mensaje = document.getElementById('contact-message').value.trim();
     const msg = document.getElementById('form-success');
-    if (msg) { msg.style.display = 'block'; contactForm.reset(); }
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const response = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, apellido, email, asunto, mensaje })
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'No se pudo enviar el mensaje.');
+      if (msg) {
+        msg.textContent = '✅ ¡Mensaje enviado! Te responderemos en menos de 24 horas.';
+        msg.style.display = 'block';
+      }
+      contactForm.reset();
+    } catch (error) {
+      console.error(error);
+      if (msg) {
+        msg.textContent = '⚠️ No se pudo enviar tu mensaje. Por favor intenta de nuevo más tarde.';
+        msg.style.display = 'block';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   });
 }
 

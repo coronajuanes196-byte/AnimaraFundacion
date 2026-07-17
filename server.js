@@ -49,8 +49,15 @@ const sendDonationEmail = async ({ nombre, email, causa, monto, metodo = 'PayPal
       <p><strong>Monto:</strong> ${monto || 'No especificado'}</p>
       <p><strong>Método:</strong> ${metodo}</p>
       <p>Tu apoyo hace una gran diferencia. Gracias por formar parte de esta causa.</p>
+      <p>Adjuntamos tu certificado de donación para que puedas descargarlo y conservarlo.</p>
       <p>Con cariño,<br/>Animara Fundación</p>
     `,
+    attachments: [
+      {
+        filename: 'certificadoAnimara.png',
+        path: path.join(__dirname, 'img', 'certuficadoAnimara.png'),
+      },
+    ],
   };
 
   await transporter.sendMail(adminMailOptions);
@@ -58,6 +65,34 @@ const sendDonationEmail = async ({ nombre, email, causa, monto, metodo = 'PayPal
   if (email) {
     await transporter.sendMail(donorMailOptions);
   }
+};
+
+const sendContactEmail = async ({ nombre, apellido, email, asunto, mensaje }) => {
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT || 587),
+    secure: false,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  const adminMailOptions = {
+    from: process.env.SMTP_FROM || process.env.SMTP_USER,
+    to: process.env.CONTACT_EMAIL || process.env.NOTIFY_EMAIL || process.env.SMTP_USER,
+    subject: `Nueva consulta desde Animara: ${asunto || 'Sin asunto'}`,
+    html: `
+      <h2>Nuevo mensaje de contacto</h2>
+      <p><strong>Nombre:</strong> ${nombre} ${apellido || ''}</p>
+      <p><strong>Correo:</strong> ${email}</p>
+      <p><strong>Asunto:</strong> ${asunto || 'No especificado'}</p>
+      <p><strong>Mensaje:</strong></p>
+      <p>${mensaje.replace(/\n/g, '<br/>')}</p>
+    `,
+  };
+
+  await transporter.sendMail(adminMailOptions);
 };
 
 app.post('/api/donacion', async (req, res) => {
@@ -74,6 +109,23 @@ app.post('/api/donacion', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ ok: false, message: 'No se pudo enviar la notificación.' });
+  }
+});
+
+app.post('/api/contacto', async (req, res) => {
+  try {
+    const { nombre, apellido, email, asunto, mensaje } = req.body;
+
+    if (!nombre || !email || !mensaje) {
+      return res.status(400).json({ ok: false, message: 'Faltan datos obligatorios.' });
+    }
+
+    await sendContactEmail({ nombre, apellido, email, asunto, mensaje });
+
+    res.json({ ok: true, message: 'Mensaje enviado correctamente.' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ ok: false, message: 'No se pudo enviar el mensaje.' });
   }
 });
 
