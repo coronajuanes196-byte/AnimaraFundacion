@@ -44,9 +44,8 @@ const sendDonationEmail = async ({ nombre, email, causa, monto, metodo = 'PayPal
     html: `
       <h2>¡Gracias por tu generosidad!</h2>
       <p>Hola ${nombre},</p>
-      <p>Tu donación ha sido recibida con mucho cariño y gratitude. Gracias por apoyar a Animara y por ayudar a los animales que necesitan una segunda oportunidad.</p>
+      <p>Tu donación ha sido recibida con mucho cariño y gratitud. Gracias por apoyar a Animara y por ayudar a los animales que necesitan una segunda oportunidad.</p>
       <p><strong>Causa:</strong> ${causa || 'No especificada'}</p>
-      <p><strong>Monto:</strong> ${monto || 'No especificado'}</p>
       <p><strong>Método:</strong> ${metodo}</p>
       <p>Tu apoyo hace una gran diferencia. Gracias por formar parte de esta causa.</p>
       <p>Adjuntamos tu certificado de donación para que puedas descargarlo y conservarlo.</p>
